@@ -39,7 +39,7 @@
            <h4>动作要领图</h4>
            <div class="yaolingphotos">
              <ul v-for="yaoling in action.jibendongzuo_picture">
-               <li><img class='yaoling' :src="yaoling" alt=""></li>
+               <li><img class='yaoling' :src="yaoling.url" alt=""></li>
              </ul>
            </div>
            <h4>动作要领</h4>
@@ -93,6 +93,7 @@
           url: this.GLOBAL.HOST + 'action/getaction/?id=' + vm.aid
         })
           .then(function (response) {
+            console.log(response.data)
             vm.action_list = response.data
           })
           .catch(function (error) {
